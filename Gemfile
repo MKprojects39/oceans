@@ -38,7 +38,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails', '~> 4.3.1' 
 
 gem 'carrierwave'
-gem 'mini_magick',             '4.7.0'
+gem 'mini_magick',             '4.9.4'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 # Use Capistrano for deployment
