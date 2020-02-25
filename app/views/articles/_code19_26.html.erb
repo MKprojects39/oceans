@@ -1,0 +1,22 @@
+<h3>Top</h3>
+<% @jacket_m_jacket_s_hoode_j.each do |article| %>
+<li id="article">
+
+  <span class="content">
+      <%= article.content %>
+    <%= image_tag article.picture.url if article.picture? %>
+  </span>
+
+</li>
+<% end %>
+<h3>Inner</h3>
+<% @t_long_t_short.each do |article| %>
+<li id="article">
+
+  <span class="content">
+      <%= article.content %>
+    <%= image_tag article.picture.url if article.picture? %>
+  </span>
+
+</li>
+<% end %>

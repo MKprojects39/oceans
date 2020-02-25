@@ -1,0 +1,119 @@
+<div class="top-main text-center ">
+  <div>
+  <h2 class="top-message animated fadeIn delay-1.5s">Ocean</h2>
+　<h3 class="top-message animated fadeIn delay-1s">自動コーディネートアプリケーション</h3><br>
+  <div class="top-message animated fadeIn delay-2s">
+   <p>
+    サンプルのため<span style="color :#000; font-size:40px;">ログイン</span>からお進みくださいませ
+  </p>
+  </div>
+<div class="container">
+  <div class="menu animated zoomInUp delay-2s"><%= link_to "ログイン", login_path , class: "btn btn-lg btn-dark w-50 "%></div>
+  <div class="menu animated zoomInRight delay-2s"><%= link_to "新規登録", signup_path , class: "btn btn-lg btn-dark w-50 h-50" %></div>
+  <div class="menu animated zoomInLeft delay-2s"><%= link_to "Oceanってなに？",  help_path , class: "btn btn-lg btn-dark w-50" %></div>
+</div>  
+</div>
+<br>
+<br>
+<br>
+</div>
+
+
+<section class="section1" style="background: #fff;">
+  <div class="section-padding">
+    <div class="rsm-wrap">
+      <h1 class="center lt1 animated fadeInUp delay-2s">Reduce morning time.</h1>
+      <p class="section1-text">Oceanはただのアプリではありません。<br>Oceanは全ての人のための洋服共有SNSサービスです。SNS機能だけではなく毎日の朝の支度を楽にする機能がついています。誰にだって削減したい朝の準備時間があるはずです。</p>
+    </div>
+    <div class="center">
+      <img data-src="/public/pepole.png" class="section1-image my-lazy-load" src="/pepole.png">
+    </div>
+  </div>
+</section>
+
+<section id="section2" style="background: teal;">
+
+  <div class="section-padding">
+    <div class="rsm-wrap">
+      <h3 class="section-title center lt1 animated" data-animate="zoomInUp delay-1.5s">What do you help?</h3>
+      <p class="section1-text">Oceanは毎朝、気象データをもとにその日の気温から最適なコーディネートを提案します。これでもっと朝の貴重な時間も有効に使えることでしょう。</p>
+      <div><img data-src="/public/fashion22.jpg" class="section2-image my-lazy-load" src="/fashion22.jpg"></div>
+    </div>
+  </div>
+</section>
+
+<section id="section3" style="background: #fff;">
+<div class="section-padding">
+    <div class="rsm-wrap">
+      <div class="row dark">
+
+    <div class="col-12">
+        <h3 class="section-title center lt1" style="color: #000;">使用したスキル</h3>
+        <div class="heading-underline"></div>
+    </div>
+    <br>
+    <br>
+    <div class="col-md-4 dis animated" data-animate="jello delay-1s">
+        <h3 style="color: #000; ">&emsp;HTML & CSS</h3>
+        <div class="feature">
+           <img src="/html5.png" alt="Blender"> <img src="/css.png" alt="Blender">
+        </div>            
+    </div>
+    <div class="col-md-4 dis animated" data-animate="jello delay-2s">
+        <h3 style="color: #000; ">&emsp;Ruby & rails</h3>
+        <div class="feature">
+           <img src="/ruby.jpg" alt="Blender"> <img src="/rails.png" alt="Blender">
+        </div>            
+    </div>
+    <div class="col-md-4 dis animated" data-animate="jello delay-3s">
+        <h3 style="color: #000; ">&emsp;Vue & Bootstrap</h3>
+        <div class="feature">
+           <img src="/vue.png" alt="Blender"> <img src="/boot.jpg" alt="Blender">
+        </div>            
+    </div>
+　　<div class="col-12 narrow text-center">
+　　  <br>
+　　  <br>
+　　  <br>
+    <p style="color:#000;">詳しくはこちら  <%= link_to "About", help_path, class: "btn-dark btn" %></p>
+    
+　　</div>
+  </div>
+  </div>
+  </div>
+
+</section>
+<section class="section-cta" style="background:teal;">
+  <div class="rsm-wrap center">
+    <div class="section-title-logo center">
+      <i class="fa fa-apple"></i>
+    </div>
+    <div><p>Let's get started！!</p></div>
+    <a class="btn btn-dark" href="#course">はじめる</a>
+  </div>
+  
+  
+</section>
+
+
+<script>
+$(window).on('load scroll', function(){
+
+  var elem = $('.animated');
+
+  elem.each(function () {
+
+    var isAnimate = $(this).data('animate');
+    var elemOffset = $(this).offset().top;
+    var scrollPos = $(window).scrollTop();
+    var wh = $(window).height();
+
+    if(scrollPos > elemOffset - wh + (wh / 2)){
+      $(this).addClass(isAnimate);
+    }else{
+      $(this).removeClass(isAnimate);
+    }
+  });
+
+});
+</script>

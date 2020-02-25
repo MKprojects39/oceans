@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+  <div class="col-sm-5 col-md-3">
+    <br>
+    <%= render 'layouts/sidebar' %>
+  </div>
+  
+  <div class="col-sm-7 col-md-5">
+    <br>
+      <ol class="articles">
+        <%= render @article %>
+      </ol>
+  <div class="p-comment__list">
+    <div class="p-comment__listTitle">コメント</div>
+      <%= render @article.comments %>
+  </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment } %>
+  </div>
+
+<div class="col-md-4">
+
+    <br>
+    <%= render 'users/recommend_user' %>
+</div>
+</div>
+</div>

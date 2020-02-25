@@ -1,0 +1,31 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-6">
+    <% provide(:button_text, 'プロフィールを編集') %>
+    <h5>プロフィール編集</h5>
+    <br>
+    <h5>基本情報</h5>
+    <%= render 'form' %>
+    <br>
+    <% if @user == current_user && @user.id != 5 %>
+        <%= link_to '※アカウント削除', user_path(current_user), method: :delete, data:{ confirm: '本当に削除しますか?'},
+                                         class: "btn btn-dark" %>
+    <% end %>
+
+  </div>
+  <div class="col-md-6 pic">
+    <H5>プロフィール画像</H5>
+    <%= form_for(@user) do |f| %>
+  <% if @user.image? %>
+    <%= image_tag @user.image.url %>
+  <% else %>
+    <%= image_tag("/ai_07.png") %>
+  <% end %>
+  <%= f.file_field :image %>
+  <% if @user == current_user && @user.id != 5 %>
+  <%= f.submit 'プロフィール画像を編集する', class: 'btn btn-dark' %>
+ <% end %>
+ <% end %>
+  </div>
+</div>
+</div>

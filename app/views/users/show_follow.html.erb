@@ -1,0 +1,43 @@
+<div class="container">
+<div class="row">
+<div class="col-md-3">
+<br>
+  <%= render 'layouts/sidebar' %>
+</div>
+  <div class="col-md-3">
+    <div class="userfollow">
+    <section class="user_info">
+      <h1>
+          <%= form_for(@user) do |f| %>
+            <% if @user.image? %>
+               <%= image_tag @user.image.url %>
+            <% else %>
+               <%= image_tag("/ai_07.png") %>
+            <% end %>
+          <% end %>
+    
+        <div class="space">
+           <h5><%= @user.name %></h5>
+        </div>
+     
+           <section class="stats">
+             <%= render 'shared/stats' %>
+           </section>
+       </h1>
+    </section>
+    </div>
+  </div>
+    
+    
+  <div class="col-md-6 follow">
+    <h5><%= @title %></h5>
+    <% if @users.any? %>
+      <ul class="users follow ">
+        <%= render @users %>
+      </ul>
+    <% end %>
+      <%= paginate @users %>
+    
+  </div>
+</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Login</h1>
+    <div class="newuser-form">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+       <p>※　sample@a.a のままログインしてください</p>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+      <P>※お手数ですが a と１回入力してくださいmm</P>
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :remember_me %>
+      <span>ログインを記録</span>
+      <% end %>
+      <p><%= f.submit "Log in", class: "btn btn-dark" %></p>
+    <% end %>
+    
+    
+    
+    <p>初めての方はこちら➤<%= link_to "Sign up now!", signup_path %></p>
+    </div>
+</div>
+<script>
+$(function() {
+  $('#session_email').val(['sample@a.a']);
+});
+</script>

@@ -1,0 +1,80 @@
+ <header class="navbar navbar-expand  bg-dark fixed-top">
+      <%= link_to "Ocean", help_path, id: "logo", class: "navbar-brand" %>
+      <ul class="navbar-nav ml-auto">
+        <% if logged_in? %>
+        <!--login時表示-->
+       
+        <li class="nav-item">
+          <%= link_to "☆", "/users/#{@current_user.id}/main", class: "nav-link d" %>
+          
+        </li>
+        <li class="nav-item">
+          <%= link_to "⌂", "/articles/#{@current_user.id}/time", class: "nav-link d" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "🤐", users_path, class: "nav-link d" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "💭", upload_path, class: "nav-link d" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "メイン", "/users/#{@current_user.id}/main", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link d" href="#" data-toggle="modal" data-target="#Modal">使い方</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link e" href="#" data-toggle="modal" data-target="#Modal">アプリの使い方</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Oceanとは？", help_path, class: "nav-link e" %>
+        </li>
+         <li class="nav-item">
+          <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link e" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "🚪", logout_path, method: :delete, class: "nav-link d" %>
+        </li>
+        
+        <% else %>
+         <!--logout時表示-->
+        <li class="nav-item">
+          <%= link_to "Oceanとは？", help_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規登録➤", signup_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", login_path, class: "nav-link" %>
+        </li>
+        
+        <% end %>
+       
+      </ul>
+</header>
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
+ 
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      　～使い方～<br>
+      　1,まず「アップロード」から洋服の登録をしてください<br>
+      　2,登録の際タグ付けを忘れないでください<br>
+      　3,「メイン」を開くと自動で洋服がセレクトされます！<br><br>
+      　4,「マイページ(自分の名前)」より登録確認できます<br>
+      　5,「ホーム」より自分とフォローワーの登録した洋服が確認できます
+      　
+      　
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<% @tag_articles.each do |tag_article| %>
+<li id="article">
+ <div class="user-left">
+   <%= form_for(@user) do |f| %>
+     <% if @user.image? %>
+       <%= image_tag @user.image.url %>
+     <% else %>
+       <%= image_tag("/ai_07.png") %>
+     <% end %>
+   <% end %>
+  </div>
+  <span class="user"><%= link_to tag_article.user.name, tag_article.user %></span>
+  <span class="content">
+      <% unless tag_article.article_tag.nil? %>
+ 　　　<!-- 配列として格納されているspot_tagの"を削除して表示 -->
+     <a><%= link_to tag_article.content, article_path(tag_article.id) %>&emsp;#<%= tag_article.article_tag.gsub(/"/, '').gsub(/[\[\]\"]/, "") %></a>
+   　<% end %>
+   　<%= image_tag tag_article.picture.url if tag_article.picture? %>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(tag_article.created_at) %> ago.
+      <%= link_to "💬", article_path(tag_article.id) %>
+    <% if current_user?(tag_article.user) %>
+    　<%= link_to "編集", edit_article_path(tag_article.id) %>
+      <%= link_to "削除", tag_article, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+  
+</li>
+<% end %>

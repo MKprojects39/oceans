@@ -1,0 +1,14 @@
+<h5>🔧今日のタスク🔨</h5>
+<ul class="list-group">
+<% @todaycards.each do |card| %>
+<li class="list-group-item">・<%= card.name %></li>
+<% end %>
+</ul>
+<br>
+<br>
+<h5>🔧今月中のタスク:優先度順🔨</h5>
+<ul class="list-group">
+<% @weekcards.each do |card| %>
+<li class="list-group-item">・<%= card.name %></li>
+<% end %>
+</ul>

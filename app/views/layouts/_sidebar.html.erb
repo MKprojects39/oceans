@@ -1,0 +1,19 @@
+<div class="sidebar">
+<h2><i class="fa fa-apple"></i>&emsp;<%= link_to "Ocean", help_path,  class: "sidebar-top" %></h2>
+<!--<h2 style="margin-left: 45px;"><a class="sidebar-top" href="#" data-toggle="modal" data-target="#Modal">Ocean<span><h5 style="font-size:15px;">使い方</h5></span></a></h2>-->
+        <ul>
+            <% if logged_in? %>
+            <li><i class="fa fa-star"></i>&emsp;<%= link_to "メイン", "/users/#{@current_user.id}/main", class: "sidebar-top" %></li>
+            <li><i class="fa fa-home"></i></i>&emsp;<%= link_to "ホーム", "/articles/#{@current_user.id}/time",  class: "sidebar-top" %></li>
+            <li><i class="fa fa-user"></i>&emsp;<%= link_to current_user.name, current_user,  class: "sidebar-top" %></li>
+            <li><i class="fa fa-heart"></i>&emsp;<%= link_to "いいね!", "/users/#{@current_user.id}/likes",  class: "sidebar-top" %></li>
+            <li><i class="fa fa-users"></i>&emsp;<%= link_to "ユーザー", users_path,  class: "sidebar-top" %></li>
+            <li><i class="fa fa-check"></i>&emsp;<%= link_to "フォロー", "/users/#{@current_user.id}/followers",  class: "sidebar-top" %></li>
+            <li><i class="fa fa-edit"></i>&emsp;<%= link_to "プロフ編集", "/users/#{@current_user.id}/edit",  class: "sidebar-top" %></li>
+            <li><i class="fa fa-upload"></i>&emsp;<%= link_to "アップロード", upload_path,  class: "sidebar-top" %></li>
+            <li><i class="fa fa-unlock"></i>&emsp;<%= link_to "ログアウト", logout_path, method: :delete,  class: "sidebar-top" %></li>
+
+            <% end %>
+        </ul>
+</div>
+

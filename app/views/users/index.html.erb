@@ -1,0 +1,43 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'layouts/sidebar' %>
+  </div>
+    
+  <div class="col-md-6 ">
+      <div class="main users-index ">
+        <h5>Users</h5>
+    <%= form_tag(users_path, :method => 'get' ) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "ユーザー名で検索☆", :name => nil , class: " btn btn-light" %>
+    <% end %>
+    
+        <% @users.each do |user| %>
+        <div class="users-index-item rounded">
+        <div class="user-left">
+        <%= form_for(user) do |f| %>
+           <% if user.image? %>
+              <%= image_tag user.image.url %>
+           <% else %>
+              <%= image_tag("/ai_07.png") %>
+            <% end %>
+        <% end %>
+        </div>
+        
+         <div class="user-right">
+            <%= link_to(user.name, user) %>　
+            
+         </div>
+           
+      </div>
+     <% end %>
+     <br>
+     <br>
+    <%= paginate @users %>
+  </div>
+
+</div>
+</div>
+</div>
+
+ 

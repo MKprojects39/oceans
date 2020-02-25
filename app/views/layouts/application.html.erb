@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <title>Ocean</title>
+    <%= csrf_meta_tags %>
+    <style type="text/css">
+    
+
+a:link { color: #48E973; }
+a:visited { color: #48E973; }
+a:hover { color: #48E973; }
+a:active { color: #48E973; }
+ .sample {
+   position: relative;
+   color: #fff;
+   line-height: 150px;
+   font-size: 2em;
+   width: 400px;
+   height: 150px;
+   margin: 0 auto;
+   background: #5581EA;
+   text-align: center;
+ }
+.invisible{
+ transition: opacity 0.5s ease;
+ opacity: 0.0;
+ }
+    </style>
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <%= render 'layouts/header' %>
+    <!--<div class="container">-->
+      <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    <%= render 'layouts/footer' %>
+    <!--</div>-->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

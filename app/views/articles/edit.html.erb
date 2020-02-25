@@ -1,0 +1,71 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-2">
+    <%= render 'layouts/sidebar' %>
+  </div>
+  
+  <div class="col-md-5">
+<h5>編集</h5>
+
+<%= form_for(@article) do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "ブランド名を入力..." %>
+  </div>
+    <% %w(Auter Auter-F).each.with_index do |article_tag, i| %>
+    <div class="tagli1"><%= f.check_box :article_tag, { multiple: true }, article_tag, nil %><%= article_tag %></div>
+    <% end %> 
+    <br>
+    <% %w(Jaket-m Jaket-s).each.with_index do |article_tag, i| %>
+    <div class="tagli"><%= f.check_box :article_tag, { multiple: true }, article_tag, nil %><%= article_tag %></div>
+    <% end %> 
+    <br>
+    <% %w(Hoode-J Hoode-F).each.with_index do |article_tag, i| %>
+    <div class="tagli"><%= f.check_box :article_tag, { multiple: true }, article_tag, nil %><%= article_tag %></div>
+    <% end %> 
+    <br>
+    <% %w(T-long T-short).each.with_index do |article_tag, i| %>
+    <div class="tagli2"><%= f.check_box :article_tag, { multiple: true }, article_tag, nil %><%= article_tag %></div>
+    <% end %>
+    <br>
+    <% %w(Pant Shose).each.with_index do |article_tag, i| %>
+    <div class="tagli3"><%= f.check_box :article_tag, { multiple: true }, article_tag, nil %><%= article_tag %></div>
+    <% end %>
+  <br>
+  <span class="picture">
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+  <%= f.submit "投稿する", class: "btn btn-light" %>
+<% end %>
+</div>
+
+
+　  <div class="col-md-4">
+    <h5>タグについて</h5>
+    <ul style="color: #fff;">
+      <li>Auter   アウター</li>
+      <li>Auter   フードアウター</li>
+      <li>Jaket-m ジャケットM</li>
+      <li>Jaket-s ジャケットS</li>
+      <li>Hoode-J ジップパーカー</li>
+      <li>Hoode-F フードパーカー</li>
+      <li>T-long  長袖類</li>
+      <li>T-short 半袖類</li>
+      <li>Pant    ボトムス</li>
+      <li>Shose   シューズ</li>
+      
+    </ul>
+  </div>
+
+
+</div>
+</div>
+
+<script type="text/javascript">
+  $('#micropost_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
+

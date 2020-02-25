@@ -1,0 +1,20 @@
+<h3>TOP</h3>
+<% @t_short.each do |article| %>
+<li id="article">
+ <div class="user-left">
+   <%= form_for(@user) do |f| %>
+     <% if @user.image? %>
+       <%= image_tag @user.image.url %>
+     <% else %>
+       <%= image_tag("/ai_07.png") %>
+     <% end %>
+   <% end %>
+  </div>
+  <span class="user"><%= link_to article.user.name, article.user %></span>
+  <span class="content">
+      <%= article.content %>
+    <%= image_tag article.picture.url if article.picture? %>
+  </span>
+ 
+</li>
+<% end %>

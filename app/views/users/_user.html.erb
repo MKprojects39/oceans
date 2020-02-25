@@ -1,0 +1,24 @@
+<div class="main users-index">
+  <div class="container">
+       <%= will_paginate %>
+  <div class="users-index-item">
+        <div class="user-left">
+        <%= form_for(user) do |f| %>
+           <% if user.image? %>
+              <%= image_tag user.image.url %>
+           <% else %>
+              <%= image_tag("/ai_07.png") %>
+            <% end %>
+        <% end %>
+        </div>
+        
+         <div class="user-right">
+            
+          <%= link_to(user.name, user) %>
+           
+        </div>
+      </div>
+
+     
+  </div>
+</div>

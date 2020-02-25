@@ -1,0 +1,81 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-3">
+    <br>
+    <%= render 'layouts/sidebar' %>
+  </div>
+  
+
+  <div class="col-md-5">
+    <br>
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <br>
+      <br>
+        <br>
+      
+      <script>
+          function koshin(){
+          location.reload();
+          }
+      </script>
+      
+     <h5><i class="fa fa-star"></i>&emsp;今日の最適コーデ&emsp;<i class="fa fa-star"></i> <input type="button" class="btn btn-light btn-sm " value="選びなおす↺" onclick="koshin()" style="width: 140px; padding-top: 5px; color:teal;"></h5> 
+     <!--<input type="button" class="btn btn-light btn-sm " value="選びなおす↺" onclick="koshin()">-->
+     <!--<input type="button" class="btn btn-lg w-50" value="👕コーデを更新↺" onclick="koshin()">-->
+     <ol class="articles">
+    <!--最高気温5度以下のとき  -->
+    <% if @maxtemp.to_i <= 5 %>
+       <%= render 'articles/code1_5' %>
+    <% end %>
+    <!--最高気温6,8,10,12,14度のとき-->
+    <% if @maxtemp.to_i == 6 || @maxtemp.to_i == 8 || @maxtemp.to_i == 10 || @maxtemp.to_i == 12 || @maxtemp.to_i == 14 %>
+       <%= render 'articles/code6_14' %>
+    <% end %>
+    <!--最高気温7,9,11,13度のとき-->
+    <% if @maxtemp.to_i == 7 || @maxtemp.to_i == 9 || @maxtemp.to_i == 11 || @maxtemp.to_i == 13  %>
+       <%= render 'articles/code7_13' %>
+    <% end %>
+    <!--最高気温15,17度のとき-->
+    <% if @maxtemp.to_i == 15 || @maxtemp.to_i == 17  %>
+       <%= render 'articles/code15_17' %>
+    <% end %>
+        <!--最高気温16,18度のとき-->
+    <% if @maxtemp.to_i == 16 || @maxtemp.to_i == 18  %>
+       <%= render 'articles/code16_18' %>
+    <% end %>
+    <!--最高気温19,20,21,22,24,26度のとき-->
+    <% if @maxtemp.to_i == 19 || @maxtemp.to_i == 20 || @maxtemp.to_i == 21 || @maxtemp.to_i == 22 || @maxtemp.to_i == 24 || @maxtemp.to_i == 26 %>
+       <%= render 'articles/code19_26' %>
+    <% end %>
+    <!--最高気温23,25,27,28度のとき-->
+     <% if @maxtemp.to_i == 23 || @maxtemp.to_i == 25 || @maxtemp.to_i == 27 || @maxtemp.to_i == 28  %>
+       <%= render 'articles/code23_28' %>
+    <% end %>
+    <!--最高気温29度以上-->
+     <% if @maxtemp.to_i >= 29 %>
+       <%= render 'articles/t_short' %>
+    <% end %>
+      <h3>Pant</h3>
+       <%= render 'articles/pant' %>
+      <h3>Shose</h3>
+       <%= render 'articles/shose' %>
+     </ol>
+   
+  </div>
+
+  <div class="col-md-4">
+　　<br>
+    <%= render 'shared/weather' %>
+    <br>
+    <br>
+    
+    <%= render 'shared/todo' %>
+
+  </div>
+
+</div>
+</div>
+
+

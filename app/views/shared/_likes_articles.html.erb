@@ -1,0 +1,32 @@
+<% @likes_article.each do |likes_article| %>
+<% likes_articles = Article.find_by(id: likes_article.article_id) %>
+<li id="article">
+ <div class="user-left">
+   <%= form_for(likes_articles) do |f| %>
+     <% if likes_articles.user.image? %>
+       <%= image_tag likes_articles.user.image.url %>
+     <% else %>
+       <%= image_tag("/ai_07.png") %>
+     <% end %>
+   <% end %>
+  </div>
+  <span class="user"><%= link_to likes_articles.user.name, likes_articles.user %></span>
+  <span class="content">
+      <% unless likes_articles.article_tag.nil? %>
+ 　　　<!-- 配列として格納されているspot_tagの"を削除して表示 -->
+     <a><%= likes_articles.content %>&emsp;#<%= likes_articles.article_tag.gsub(/"/, '').gsub(/[\[\]\"]/, "") %></a>
+   　<% end %>
+   　<%= image_tag likes_articles.picture.url if likes_articles.picture? %>
+  </span>
+  <span class="timestamp">
+      
+    Posted <%= time_ago_in_words(likes_articles.created_at) %> ago.
+    <% if current_user?(likes_articles.user) %>
+      <%= link_to "編集", edit_article_path(likes_article.id) %>
+      <%= link_to "削除", likes_articles, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+  
+</li>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="p-comment__formBox">
+  <p class="p-comment__formTitle"><i class="fa fa-comment"></i> コメント記入</p>
+  <%= form_for comment do |f| %>
+    <%= f.hidden_field :article_id %>
+    <div class="form-group">
+      <%= f.label :name, '名前' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group" id="app">
+      <%= f.label :comment, 'コメント' %>
+      <textarea v-model.trim="message" rows="4" name="comment[comment]" id="comment_comment" class="form-control"></textarea>
+      <p>あと {{ 200 - message.length }} 文字入力できます</p>
+    </div>
+    <%= f.submit '送信', class: 'btn btn-light' %>
+  <% end %>
+</div>
+
+<script>
+  new Vue({
+  el: '#app',
+  data: { message: '' }
+});
+
+</script>

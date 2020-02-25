@@ -1,0 +1,46 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-3">
+    <br>
+    <%= render 'layouts/sidebar' %>
+  </div>
+  
+  <div class="col-md-5">
+    <br>
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <br>
+    <br>
+    <br>
+    
+    <h5><i class="fa fa-address-card"></i>&emsp;My clothes (<%= @user.articles.count %>)</h5>
+    <ul class="user-tab">
+    <li><i class="fa fa-comment"></i>&emsp;<%= link_to("ツイート", user_path) %></li>
+    <li><i class="fa fa-heart"></i>&emsp;<%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+    </ul>
+      <ol class="articles">
+        <%= render 'shared/tag_articles' %>
+      </ol>
+      <br>
+      <br>
+        <%= paginate @tag_articles %>
+    
+    
+  </div>
+
+<div class="col-md-4">
+  <br>
+<h5><i class="fa fa-hashtag"></i> タグ検索</h5>
+      <%= form_tag user_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search],:placeholder => "#..." %>
+      <%= submit_tag "カテゴリーで検索", :name => nil , class: " btn btn-light" %>
+      <% end %>
+    <br>
+    <br>
+    <%= render 'users/tag_list' %>
+    <br>
+    <%= render 'users/recommend_user' %>
+</div>
+</div>
+</div>

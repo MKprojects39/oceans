@@ -1,0 +1,11 @@
+<% @pant.each do |article| %>
+<li id="article">
+ 
+  
+  <span class="contentt">
+      <%= article.content %>
+      <%= image_tag article.picture.url if article.picture? %>
+  </span>
+
+</li>
+<% end %>

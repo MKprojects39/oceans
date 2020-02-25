@@ -1,0 +1,22 @@
+<h5><i class="fa fa-fire"></i> おすすめユーザー</h5>
+<ul class="list-group ">
+<% @users.each do |user| %>
+<li class="list-group-item">
+ <div class="users-index-itemm">
+    <div class="user-left">
+        <%= form_for(user) do |f| %>
+           <% if user.image? %>
+              <%= image_tag user.image.url %>
+           <% else %>
+              <%= image_tag("/ai_07.png") %>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="user-right">
+        <%= link_to(user.name, user) %>
+    </div>
+           
+</div>  
+</li>
+<% end %>
+</ul>

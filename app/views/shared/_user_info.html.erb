@@ -1,0 +1,21 @@
+<h1>
+    <%= form_for(@user) do |f| %>
+    <% if @user.image? %>
+    <%= image_tag @user.image.url %>
+         <% else %>
+          <%= image_tag("/ai_07.png") %>
+         <% end %>
+        <% end %>
+        <div class="space">
+        <h5><%= @user.name %>&emsp;&emsp;
+        <% if @user == current_user && @user.id != 5 %>
+        <%= link_to "編集", edit_user_path(current_user) ,class: " btn btn-dark" %>
+        <% end %>
+        </h5>
+        </div>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
+
+        <%= render 'follow_form' if logged_in? %>
+</h1>
