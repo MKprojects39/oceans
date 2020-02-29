@@ -5,7 +5,7 @@
 
 <a href="https://oceanmorningggg.herokuapp.com/" rel="nofollow">https://oceanmorningggg.herokuapp.com/</a>
 <br><br>
-![ocean](https://user-images.githubusercontent.com/58989336/75276607-d0f81e80-5849-11ea-88a3-02887c7a71e6.jpg)
+![ooo](https://user-images.githubusercontent.com/58989336/75613357-f9488b80-5b6f-11ea-99b8-0550a1c7088d.png)
 
  <h3>Оceanってどんなアプリ？</h3>
   <h5>A.自動コーディネート機能をもった洋服共有SNSアプリです。</h5><br>
